@@ -18,7 +18,7 @@ if(!isset($admin_id)){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>admin panel</title>
+   <title>admin Panel</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -35,38 +35,38 @@ if(!isset($admin_id)){
 
 <section class="dashboard">
 
-   <h1 class="title">dashboard</h1>
+   <h1 class="title">Dashboard</h1>
 
    <div class="box-container">
 
       <div class="box">
          <?php
-            $total_pendings = 0;
-            $select_pending = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'pending'") or die('query failed');
-            if(mysqli_num_rows($select_pending) > 0){
-               while($fetch_pendings = mysqli_fetch_assoc($select_pending)){
-                  $total_price = $fetch_pendings['total_price'];
-                  $total_pendings += $total_price;
+            $total_Pendings = 0;
+            $select_Pending = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'Pending'") or die('query failed');
+            if(mysqli_num_rows($select_Pending) > 0){
+               while($fetch_Pendings = mysqli_fetch_assoc($select_Pending)){
+                  $total_price = $fetch_Pendings['total_price'];
+                  $total_Pendings += $total_price;
                };
             };
          ?>
-         <h3>$<?php echo $total_pendings; ?>/-</h3>
-         <p>total pendings</p>
+         <h3>$<?php echo $total_Pendings; ?>/-</h3>
+         <p>Total Pendings</p>
       </div>
 
       <div class="box">
          <?php
-            $total_completed = 0;
-            $select_completed = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'completed'") or die('query failed');
-            if(mysqli_num_rows($select_completed) > 0){
-               while($fetch_completed = mysqli_fetch_assoc($select_completed)){
-                  $total_price = $fetch_completed['total_price'];
-                  $total_completed += $total_price;
+            $total_Completed = 0;
+            $select_Completed = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'Completed'") or die('query failed');
+            if(mysqli_num_rows($select_Completed) > 0){
+               while($fetch_Completed = mysqli_fetch_assoc($select_Completed)){
+                  $total_price = $fetch_Completed['total_price'];
+                  $total_Completed += $total_price;
                };
             };
          ?>
-         <h3>$<?php echo $total_completed; ?>/-</h3>
-         <p>completed payments</p>
+         <h3>$<?php echo $total_Completed; ?>/-</h3>
+         <p>Completed Payments</p>
       </div>
 
       <div class="box">
@@ -75,7 +75,7 @@ if(!isset($admin_id)){
             $number_of_orders = mysqli_num_rows($select_orders);
          ?>
          <h3><?php echo $number_of_orders; ?></h3>
-         <p>order placed</p>
+         <p>Order Placed</p>
       </div>
 
       <div class="box">
@@ -84,7 +84,7 @@ if(!isset($admin_id)){
             $number_of_products = mysqli_num_rows($select_products);
          ?>
          <h3><?php echo $number_of_products; ?></h3>
-         <p>products added</p>
+         <p>Products Added</p>
       </div>
 
       <div class="box">
@@ -93,7 +93,7 @@ if(!isset($admin_id)){
             $number_of_users = mysqli_num_rows($select_users);
          ?>
          <h3><?php echo $number_of_users; ?></h3>
-         <p>normal users</p>
+         <p>Normal users</p>
       </div>
 
       <div class="box">
@@ -111,7 +111,7 @@ if(!isset($admin_id)){
             $number_of_account = mysqli_num_rows($select_account);
          ?>
          <h3><?php echo $number_of_account; ?></h3>
-         <p>total accounts</p>
+         <p>Total Accounts</p>
       </div>
 
       <div class="box">
@@ -120,7 +120,7 @@ if(!isset($admin_id)){
             $number_of_messages = mysqli_num_rows($select_messages);
          ?>
          <h3><?php echo $number_of_messages; ?></h3>
-         <p>new messages</p>
+         <p>New Messages</p>
       </div>
 
    </div>

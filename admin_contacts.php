@@ -10,12 +10,6 @@ if(!isset($admin_id)){
    header('location:login.php');
 };
 
-if(isset($_GET['delete'])){
-   $delete_id = $_GET['delete'];
-   mysqli_query($conn, "DELETE FROM `message` WHERE id = '$delete_id'") or die('query failed');
-   header('location:admin_contacts.php');
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -41,38 +35,45 @@ if(isset($_GET['delete'])){
 
    <h1 class="title"> messages </h1>
 
-   <div class="box-container">
-   <?php
-      $select_message = mysqli_query($conn, "SELECT * FROM `message`") or die('query failed');
-      if(mysqli_num_rows($select_message) > 0){
-         while($fetch_message = mysqli_fetch_assoc($select_message)){
-      
-   ?>
-   <div class="box">
-      <p> user id : <span><?php echo $fetch_message['user_id']; ?></span> </p>
-      <p> name : <span><?php echo $fetch_message['name']; ?></span> </p>
-      <p> number : <span><?php echo $fetch_message['number']; ?></span> </p>
-      <p> email : <span><?php echo $fetch_message['email']; ?></span> </p>
-      <p> message : <span><?php echo $fetch_message['message']; ?></span> </p>
-      <a href="admin_contacts.php?delete=<?php echo $fetch_message['id']; ?>" onclick="return confirm('delete this message?');" class="delete-btn">delete message</a>
+   <!-- Show data into table -->
+   <section class="search-form">
+   <div class="container">
+      <table class="table">
+      <thead>
+         <tr>
+         <th scope="col">Name</th>
+         <th scope="col">Number</th>
+         <th scope="col">Email</th>
+         <th scope="col">View Details</th>
+         </tr>
+      </thead>
+      <tbody>
+         <?php
+            $sql = "SELECT * FROM `message`";
+            $result = mysqli_query($conn,$sql);
+            if($result){
+               while($row = mysqli_fetch_assoc($result)){
+                  $name = $row['name'];
+                  $number = $row['number'];
+                  $email = $row['email'];
+                  $user_id = $row['id'];                  
+                  echo '<tr>
+                  <th scope="row">'.$name.'</th>
+                  <td>'.$number.'</td>
+                  <td>'.$email.'</td>
+                  <td>
+                     <a class="btn btn-primary" href="admin_view_message.php?user_id='.$user_id.'">View Details</a>
+                  </td>
+                  </tr>';
+               }
+            }
+         ?>
+      </tbody>
+      </table>
    </div>
-   <?php
-      };
-   }else{
-      echo '<p class="empty">you have no messages!</p>';
-   }
-   ?>
-   </div>
+   </section>
 
 </section>
-
-
-
-
-
-
-
-
 
 <!-- custom admin js file link  -->
 <script src="js/admin_script.js"></script>

@@ -36,7 +36,7 @@ if(isset($_GET['delete_all'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>cart</title>
+   <title>Cart</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -50,13 +50,13 @@ if(isset($_GET['delete_all'])){
 <?php include 'header.php'; ?>
 
 <div class="heading">
-   <h3>shopping cart</h3>
-   <p> <a href="index.php">home</a> / cart </p>
+   <h3>Shopping Cart</h3>
+   <p> <a href="index.php">Home</a> / Cart </p>
 </div>
 
 <section class="shopping-cart">
 
-   <h1 class="title">products added</h1>
+   <h1 class="title">Products Added</h1>
 
    <div class="box-container">
       <?php
@@ -75,7 +75,7 @@ if(isset($_GET['delete_all'])){
             <input type="number" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>">
             <input type="submit" name="update_cart" value="update" class="option-btn">
          </form>
-         <div class="sub-total"> sub total : <span>$<?php echo $sub_total = ($fetch_cart['quantity'] * $fetch_cart['price']); ?>/-</span> </div>
+         <div class="sub-total"> Sub Total : <span>$<?php echo $sub_total = ($fetch_cart['quantity'] * $fetch_cart['price']); ?>/-</span> </div>
       </div>
       <?php
       $grand_total += $sub_total;
@@ -87,25 +87,18 @@ if(isset($_GET['delete_all'])){
    </div>
 
    <div style="margin-top: 2rem; text-align:center;">
-      <a href="cart.php?delete_all" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('delete all from cart?');">delete all</a>
+      <a href="cart.php?delete_all" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('delete all from cart?');">Delete All</a>
    </div>
 
    <div class="cart-total">
-      <p>grand total : <span>$<?php echo $grand_total; ?>/-</span></p>
+      <p>Grand Total : <span>$<?php echo $grand_total; ?>/-</span></p>
       <div class="flex">
-         <a href="shop.php" class="option-btn">continue shopping</a>
-         <a href="checkout.php" class="btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
+         <a href="shop.php" class="option-btn">Continue Shopping</a>
+         <a href="checkout.php" class="btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">Proceed to Checkout</a>
       </div>
    </div>
 
 </section>
-
-
-
-
-
-
-
 
 <?php include 'footer.php'; ?>
 

@@ -36,7 +36,7 @@ if(isset($_POST['add_to_cart'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>search page</title>
+   <title>Search Page</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -50,13 +50,13 @@ if(isset($_POST['add_to_cart'])){
 <?php include 'header.php'; ?>
 
 <div class="heading">
-   <h3>search page</h3>
-   <p> <a href="index.php">home</a> / search </p>
+   <h3>Search Page</h3>
+   <p> <a href="index.php">Home</a> / Search </p>
 </div>
 
 <section class="search-form">
    <form action="" method="post">
-      <input type="text" name="search" placeholder="search products..." class="box">
+      <input type="text" name="search" placeholder="Search Products..." class="box">
       <input type="submit" name="submit" value="search" class="btn">
    </form>
 </section>
@@ -84,24 +84,16 @@ if(isset($_POST['add_to_cart'])){
    <?php
             }
          }else{
-            echo '<p class="empty">no result found!</p>';
+            echo '<p class="empty">No Result Found!</p>';
          }
       }else{
-         echo '<p class="empty">search something!</p>';
+         echo '<p class="empty">Search Something!</p>';
       }
    ?>
    </div>
   
 
 </section>
-
-
-
-
-
-
-
-
 
 <?php include 'footer.php'; ?>
 

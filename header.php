@@ -13,21 +13,9 @@ if(isset($message)){
 
 <header class="header">
 
-   <div class="header-1">
-      <div class="flex">
-         <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-         </div>
-         <!-- <p> New <a href="login.php">Login</a> | <a href="register.php">Register</a> </p> -->
-      </div>
-   </div>
-
    <div class="header-2">
       <div class="flex">
-         <a href="index.php" class="logo">Reader's Point</a>
+         <a href="index.php" class="logo">AJ's Point</a>
 
          <nav class="navbar">
             <a href="index.php">Home</a>
@@ -50,7 +38,7 @@ if(isset($message)){
 
          <div class="user-box">
             <p>username : <span><?php echo $_SESSION['user_name']; ?></span></p>
-            <p>email : <span><?php echo $_SESSION['user_email']; ?></span></p>
+            <p>Email : <span><?php echo $_SESSION['user_email']; ?></span></p>
             <a href="logout.php" class="delete-btn">Logout</a>
          </div>
       </div>
